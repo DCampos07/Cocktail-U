@@ -10,4 +10,7 @@ $(function() {
     });
   });
   
-  
+  // wine score api
+  $(document).ready(function() {
+    
+  })
