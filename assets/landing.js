@@ -11,8 +11,13 @@ btnInsert.onclick = function () {
   console.log(value);
 
   if (key && value) {
-      localStorage.setItem(key, value);
-      location.reload();
+    localStorage.setItem(key, value);
+    location.reload();
   }
 };
 
+// when submit enters main page
+function myOnClickFn(event) {
+  event.preventDefault();
+  document.location.replace = "./main.html";
+}
