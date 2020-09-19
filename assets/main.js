@@ -30,21 +30,15 @@ $(function() {
       }
   } 
 
-//find child to give me name position 4 or 3 text content
-// i= "= drinktype"
 //funtion to call drinks
-  $(".drink").on("click", function(){
-  console.log($(this))
-var drinkType = 
-
+  $("#vodka").on("click", function(){
+    // var  = $(this).attr("");
+    console.log("click")
     $.ajax({
       url: "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka",
       method: "GET",
     }).then(function (response) {
-      console.log(response)
-      for (var i=0; i<response.drinks.length; i++) {
-        response.drinks[i]
-      }
+      // console.log(response)
       //Append information to Page
       var currentCard = $("#vodka")
       .append("<div>")
