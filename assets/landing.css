@@ -57,7 +57,7 @@ img {
     border-color: lightgreen;
 }
 
-.btn {
+#btn {
     margin-top: 25px;
     border: 2px solid #b3ffb3;
     color:  black;
@@ -70,7 +70,7 @@ img {
     transition: 2s;
 }
 
-.btn:hover {
+#btn:hover {
     background-color: lightblue;
     width: 200px;
 }
