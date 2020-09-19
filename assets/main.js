@@ -18,6 +18,7 @@ $(function() {
     });
   });
   
+<<<<<<< HEAD
   // Forloop for persisting the drinks on the DOM
   function loadHistory(){
       for (var i = 0; i < searchHistory.length; i++) {
@@ -86,4 +87,9 @@ $(document).ready(function() {
 //add onclick to local storage for each drink
 
 //add shopping cart to save drink order
+=======
+
+
+
+>>>>>>> 61de1a11d25d2d7bad0d3be60ed11c84ae7b7c6e
 
