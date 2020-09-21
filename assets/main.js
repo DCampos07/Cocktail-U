@@ -87,4 +87,8 @@ $(document).ready(function() {
 
 //add onclick to local storage for each drink
 
+<<<<<<< HEAD
 //add shopping cart to save drink order
+=======
+//add shopping cart to save drink order
+>>>>>>> 4380e9f6b272a7a363fc358eb1d70e5ab9743b49
