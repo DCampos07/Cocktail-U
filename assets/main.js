@@ -6,6 +6,7 @@ var searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
 var drinks = "" || searchHistory[0];
 
 
+
 // for the nav bar
 $(function() {
     $(window).scroll(function() {
@@ -18,8 +19,7 @@ $(function() {
     });
   });
   
-<<<<<<< HEAD
-  // Forloop for persisting the drinks on the DOM
+  // For loop for persisting the drinks on the DOM
   function loadHistory(){
       for (var i = 0; i < searchHistory.length; i++) {
           var historyDivs = $('<div>');
@@ -31,25 +31,26 @@ $(function() {
       }
   } 
 
-//funtion to call drinks
-  $("#vodka").on("click", function(){
-    // var  = $(this).attr("");
-    console.log("click")
+
+
+//function to call drinks
+  $(".drink").on("click", function(){
+  console.log($(this))
+
     $.ajax({
       url: "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka",
       method: "GET",
+      dateType: 'json'
     }).then(function (response) {
-      // console.log(response)
-      //Append information to Page
-      var currentCard = $("#vodka")
-      .append("<div>")
-      .addClass("card-body");
-      // currentCard.();
-      var currentName = currentCard.append("<p>");
-      // .addClass("card-text");
-      currentCard.append(currentName);
+      console.log(response)
+      for (var i=0; i<response.drinks.length; i++) {
+         var drink = response.drinks[i] 
+      
+      }
     })
 });
+
+
 
 
 // Search button click event
@@ -87,9 +88,3 @@ $(document).ready(function() {
 //add onclick to local storage for each drink
 
 //add shopping cart to save drink order
-=======
-
-
-
->>>>>>> 61de1a11d25d2d7bad0d3be60ed11c84ae7b7c6e
-
