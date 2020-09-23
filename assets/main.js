@@ -2,9 +2,9 @@
 var searchButton = $(".searchButton");
 var drinksListEl = $("#drink-list");
 var drinksHistory = $("#saved-searches");
+var drinkSection = $(".drink-section");
 var searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
 var drinks = "" || searchHistory[0];
-
 
 
 // for the nav bar
@@ -19,7 +19,7 @@ $(function() {
     });
   });
   
-  // For loop for persisting the drinks on the DOM
+  // Forloop for persisting the drinks on the DOM
   function loadHistory(){
       for (var i = 0; i < searchHistory.length; i++) {
           var historyDivs = $('<div>');
@@ -31,64 +31,40 @@ $(function() {
       }
   } 
 
-
-
-//function to call drinks
+//find child to give me name position 4 or 3 text content
+// i= "= drinktype"
+//funtion to call drinks
   $(".drink").on("click", function(){
-  console.log($(this))
+drinkSection.empty();
+var drinkType = $(this).attr("data-index");
 
     $.ajax({
-      url: "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka",
+      url: "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + drinkType,
+
       method: "GET",
-      dateType: 'json'
     }).then(function (response) {
-      console.log(response)
+     
       for (var i=0; i<response.drinks.length; i++) {
-         var drink = response.drinks[i] 
-      
+        response.drinks[i]
+        var card = $('<div class="card" style="width: 300px;">');
+        var drinkheader = $('<div class="card-divider">').text(response.drinks[i].strDrink).appendTo(card)
+        var drinkimage = $('<img src='+ response.drinks[i].strDrinkThumb +'>').appendTo(card)
+card.appendTo(drinkSection)
+
+
       }
+      //Append information to Page
+      var currentCard = $("#vodka")
+      .append("<div>")
+      .addClass("card-body");
+      // currentCard.();
+      var currentName = currentCard.append("<p>");
+      // .addClass("card-text");
+      currentCard.append(currentName);
     })
 });
 
 
 
 
-// Search button click event
-searchButton.click(function (event) {
-  // event.preventDefault();
-  var searchInput = $(".searchInput").val();
-  if (searchInput !== "") {
-      // var list = $("#saved-searches");
-      var drinksName = $("<li>");
-      var drinksName2 = $("<a>");
-      drinksName2.attr("href","#");
-      drinksName2.text(searchInput);
-      drinksName.attr("data-index", searchInput);
-      drinksName.addClass("saved-items");
-      // cityName.text(searchInput);
-      // // Local storage
-      localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
-      drinksName.append(drinksName2);
-      drinksHistory.append(drinksName);
-  }
-  getDrinks(searchInput);
-});
-$(document).on("click", ".saved-items", function(){
-  var drinks = $(this).attr("data-index");
-  console.log(city)
-  getDrinks(city);
-});
-$(document).ready(function() {
-  loadHistory();
-});
 
-
-// take id from results and add data index in case its clicked.
-
-//add onclick to local storage for each drink
-
-<<<<<<< HEAD
-//add shopping cart to save drink order
-=======
-//add shopping cart to save drink order
->>>>>>> 4380e9f6b272a7a363fc358eb1d70e5ab9743b49

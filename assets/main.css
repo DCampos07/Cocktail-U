@@ -27,6 +27,7 @@ flex-wrap: wrap;
 cursor: pointer;
 }
 
+
 /* start of nav bar */
 body {
   padding-top: 330px;
@@ -243,11 +244,4 @@ h1, h2, h3, h4, p {
   color: #4a4a4a;
   transition: color 0.3s ease-in;
 }
-
-
-
-<<<<<<< HEAD
 /* footer ends */  
-=======
-/* footer ends */  
->>>>>>> 4380e9f6b272a7a363fc358eb1d70e5ab9743b49
