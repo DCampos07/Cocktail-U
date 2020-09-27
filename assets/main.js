@@ -30,35 +30,37 @@ function loadHistory() {
   }
 }
 
+//find child to give me name position 4 or 3 text content
+// i= "= drinktype"
 //funtion to call drinks
-  $(".drink").on("click", function(){
-drinkSection.empty();
-var drinkType = $(this).attr("data-index");
+$(".drink").on("click", function () {
+  drinkSection.empty();
+  var drinkType = $(this).attr("data-index");
 
-    $.ajax({
-      url: "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + drinkType,
+  $.ajax({
+    url:
+      "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + drinkType,
 
-      method: "GET",
-    }).then(function (response) {
-      console.log(response)
-      for (var i=0; i<response.drinks.length; i++) {
-        response.drinks[i]
-        var card = $('<div class="card" style="width: 200px;">');
-        var drinkheader = $('<div class="card-divider">').text(response.drinks[i].strDrink).appendTo(card)
-        var drinkimage = $('<img src='+ response.drinks[i].strDrinkThumb +'>').appendTo(card)
-card.appendTo(drinkSection)
-
-
-      }
-      //Append information to Page
-      var currentCard = $("#vodka")
-      .append("<div>")
-      .addClass("card-body");
-      // currentCard.();
-      var currentName = currentCard.append("<p>");
-      // .addClass("card-text");
-      currentCard.append(currentName);
-    })
+    method: "GET",
+  }).then(function (response) {
+    for (var i = 0; i < 8; i++) {
+      response.drinks[i];
+      var card = $('<div class="card" style="width: 300px;">');
+      var drinkheader = $('<div class="card-divider">')
+        .text(response.drinks[i].strDrink)
+        .appendTo(card);
+      var drinkimage = $(
+        "<img src=" + response.drinks[i].strDrinkThumb + ">"
+      ).appendTo(card);
+      card.appendTo(drinkSection);
+    }
+    //Append information to Page
+    var currentCard = $("#vodka").append("<div>").addClass("card-body");
+    // currentCard.();
+    var currentName = currentCard.append("<p>");
+    // .addClass("card-text");
+    currentCard.append(currentName);
+  });
 });
 
 
@@ -96,8 +98,6 @@ modalClose1.addEventListener('click', function() {
 modalClose2.addEventListener('click', function() {
   modalBg2.classList.remove('bg-active');
 });
-
-
 
 
 
